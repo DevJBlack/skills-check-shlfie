@@ -1,1 +1,1 @@
-select * from product
+select * from product order by product_id asc;

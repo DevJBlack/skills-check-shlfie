@@ -33,19 +33,7 @@
       "last 1 safari version"
     ]
   },
-  "main": "server/server",
-  "proxy": "http://localhost:4027",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DevJBlack/skills-check-shlfie.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DevJBlack/skills-check-shlfie/issues"
-  },
-  "homepage": "https://github.com/DevJBlack/skills-check-shlfie#readme"
+  "main": "server/server.js",
+  "proxy": "http://localhost:4027"
+  
 }

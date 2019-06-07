@@ -1,20 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Product extends Component {
-  constructor(){
-    super()
-    this.state = ({
-
-    })
-  }
-
-  render(){
+function Product (){
     return(
       <div>
         <h1>Product</h1>
       </div>
-    )
-  }
+  )
 }
 
 export default Product
