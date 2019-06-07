@@ -23,14 +23,31 @@ class Dashboard extends Component {
     }).catch(err => console.log(err))
   }
 
-
+  createProduct(){
+    axios.post('/api/product').then(res => {
+      this.setState({
+        product: res.data
+      })
+    })
+  }
 
   render(){
+    let { product } = this.state
+    let productMap = product.map(products => {
+      return (
+        <Product
+          key={products.id}
+          product={products}
+        />
+      )
+    })
     return(
       <div>
         <Header/>
-        <Product/>
-        <Form/>    
+        <Form
+          createProduct={this.createProduct}
+        />    
+        {productMap}
       </div>
     )
   }    

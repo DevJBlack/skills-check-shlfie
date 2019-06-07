@@ -7,49 +7,55 @@ class Form extends Component {
     this.state = ({
       name: '',
       price: 0,
-      imgUrl: ''
+      img: ''
+    })
+    this.add = this.add.bind(this)
+  }
+
+  handleValue = (e) => {
+    const { value, name} = e.target
+    this.setState({
+      [name]: value
     })
   }
 
-  handleName(val){
-    this.setState({
-      name: val
-    })
-  }
 
-  handlePrice(val){
-    this.setState({
-      price: val
-    })
-  }
+  add(){
+    let car = this.state
 
-  handleImgUrl(val){
+    this.props.createProduct(car)
     this.setState({
-      imgUrl: val
+      name: '',
+      price: 0,
+      img: ''
     })
   }
 
   render(){
-    let { input, imgUrl } = this.state
+    let { img, name, price } = this.state
     return(
       <div className="green-box">
         <div className="img-placeholder" >
-          <img src={imgUrl} alt="Place Holder"/>
+          <img src={img} alt="Place Holder"/>
         </div>
         <div>
           <p>Image URL:</p>
           <input 
             type="text" 
-            value={input}
-            onChange={(e) => this.handleImgUrl(e.target.value)}
+            placeholder="Image URL"
+            name="img"
+            value={img}
+            onChange={this.handleValue}
           />
         </div>
         <div>
           <p>Product Name:</p>
           <input 
             type="text" 
-            value={input}
-            onChange={(e) => this.handleName(e.target.value)}
+            placeholder="Name"
+            name="name"
+            value={name}
+            onChange={this.handleValue}
           />
         </div>
         <div>
@@ -58,14 +64,16 @@ class Form extends Component {
             type="text" 
             placeholder="0" 
             step="0.01"
-            onChange={(e) => this.handlePrice(e.target.value)}
+            name="price"
+            value={price}
+            onChange={this.handleValue}
           />
         </div>
         <div className="buttons">
 
             <button>Cancel</button>
 
-            <button>Add To Inventory</button>
+            <button onClick={this.add}>Add To Inventory</button>
 
         </div>
       </div>
